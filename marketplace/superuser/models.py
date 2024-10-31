@@ -20,7 +20,7 @@ class Product(models.Model):
    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
    seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='products')
    stock = models.IntegerField(default=0)
-   image_url = models.CharField(max_length=255, null=True, blank=True)  # Almacena la URL de la imagen
+   image = models.ImageField(upload_to='products/', null=True, blank=True)
    is_active = models.BooleanField(default=True)
    created_at = models.DateTimeField(auto_now_add=True)
    updated_at = models.DateTimeField(auto_now=True)
