@@ -7,7 +7,10 @@ app_name = 'ventas'
 
 urlpatterns = [
     # Dashboard
-    path('', views.dashboard, name='dashboard'),
+    path('', views.landing_page, name='landing_page'),
+    
+    # Nueva ruta para el dashboard
+    path('dashboard/', views.dashboard, name='dashboard'),
     
     # Productos y disponibilidad
     path('disponibilidad/', views.disponibilidad_producto, name='disponibilidad'),

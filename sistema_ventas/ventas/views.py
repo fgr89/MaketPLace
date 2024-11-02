@@ -72,3 +72,14 @@ def check_stock(request, producto_id):
         'stock': producto.stock,
         'disponible': producto.stock > 0
     })
+
+
+def landing_page(request):
+    # Obtiene los productos ordenados por nombre (según tu Meta class)
+    productos = Producto.objects.all().order_by('nombre')
+    return render(request, 'ventas\landing_page.html', {'productos': productos})
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('landing_page')
